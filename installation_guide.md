@@ -25,7 +25,7 @@ Uninstall nvidia drivers:
 
 ## Installation Steps
 
-**1. NVIDIA DRIVER**
+### **1. NVIDIA GPU DRIVER**
 
 There are several methods to install the Nvidia drivers in Ubuntu: using the Software & Updates tool in Ubuntu, install via command line using apt, or downloading the .run file of the driver. The first option is recomended as it is the easiest and will be described in this guide.
 More information on the other installation methods can be found here [Nvidia Drivers Installation in Ubuntu](https://phoenixnap.com/kb/install-nvidia-drivers-ubuntu#ftoc-heading-11)
@@ -59,13 +59,14 @@ This driver is **NOT** compatible with CUDA 11.7 as it can be seen in table 3 in
 	nvidia-smi	
 	
 And you should see something similar:
+
 ![nvidia-smi](nvidia-smi.png)
 	
 Altough a CUDA version is shown next to the driver version it is not installed yet. You can check this using the command:
 	
 	nvcc --version
 	
-**2. CUDA**
+### **2. CUDA**
 
 Intall CUDA with DEB version from official webpage. 
 https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
@@ -78,33 +79,62 @@ sudo dpkg -i cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
 sudo apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
 sudo apt-get update
 sudo apt-get -y install cuda
-reboot
-nvcc --version
---despues del reboot aqui le daba nvcc --version y no me aparecia nada, faltaba 
-sudo nano ~/.profile
- add at the end of file
- if [ -d "/usr/local/cuda/bin/" ]; then
-     export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-     export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
- fi
 
-3. cuDNN
-Make nvidia developer account
- #download 3 files, https://developer.nvidia.com/rdp/cudnn-archive
- sudo dpkg -i libcudnn7_7.6.5.32–1+cuda10.2_amd64.deb
- sudo dpkg -i libcudnn7-dev_7.6.5.32–1+cuda10.2_amd64.deb
- sudo dpkg -i libcudnn7-doc_7.6.5.32–1+cuda10.2_amd64.deb
+	sudo reboot
+	
+Check version 
 
- #check libcudnn version
- /sbin/ldconfig -N -v $(sed 's/:/ /' <<< $LD_LIBRARY_PATH) 2>/dev/null | grep libcudnn
- 
- 4. DOWNGRADE GCC version  https://stackoverflow.com/questions/65605972/cmake-unsupported-gnu-version-gcc-versions-later-than-8-are-not-supported
- 
- 5.  INSTALL ROS NOETIC and clone repo --recursive (bc there is a submodule), set ssh key for git
- 
- 6. configure darknet repo
- 6.1 enable flags, 
- 6.2 set GPU architecture
- 6.3 make, compile darknet library
- 6.4 make, compile darknet_ros pkg
+	nvcc --version
+	
+You must see something like: 
+imagen 
 
+If you can not see it then:
+
+	sudo nano ~/.profile
+	add at the end of file
+	if [ -d "/usr/local/cuda/bin/" ]; then
+		export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+		export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+	fi
+
+### **3. cuDNN**
+
+3.1 Make nvidia developer account
+
+3.2 download 3 files, https://developer.nvidia.com/rdp/cudnn-archive
+	
+	sudo dpkg -i libcudnn7_7.6.5.32–1+cuda10.2_amd64.deb
+	
+	sudo dpkg -i libcudnn7-dev_7.6.5.32–1+cuda10.2_amd64.deb
+	
+	sudo dpkg -i libcudnn7-doc_7.6.5.32–1+cuda10.2_amd64.deb
+ 
+ 3.3 uncompress and install
+
+3.4 check libcudnn version
+
+	/sbin/ldconfig -N -v $(sed 's/:/ /' <<< $LD_LIBRARY_PATH) 2>/dev/null | grep libcudnn
+ 
+ 
+ ### **4. ROS Configuration**
+
+4.1 INSTALL ROS NOETIC install instructions
+4.2 set up catkin_ws
+4.3 clone this version of the repo with the recursive --recursive (bc there is a submodule)
+4.4 set ssh key for git if needed 
+4.5 DOWNGRADE GCC version  https://stackoverflow.com/questions/65605972/cmake-unsupported-gnu-version-gcc-versions-later-than-8-are-not-supported
+
+
+### **5. configure darknet repo**
+ 5.1 enable flags, 
+ 5
+ 5.2 set GPU architecture
+ 5
+ 5.3 make, compile darknet library
+ 5
+ 5.4 make, compile darknet_ros pkg
+
+### **6. Test it ! **
+
+imagen
