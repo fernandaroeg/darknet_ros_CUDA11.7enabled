@@ -40,7 +40,7 @@ This driver is **NOT** compatible with CUDA 11.7 as it can be seen in table 3 in
 
 ![CUDA_compatibility](CUDA_compatibility.png)
 
-**So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515.**
+**!!!So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515.**
 	 
 	 
 **1.3** Now that the driver version to be installed is identified, open the **Software & Updates** tool in Ubuntu and go to the **Additional Drivers** section. Select the desired driver and click on **Apply Changes**
@@ -56,21 +56,20 @@ This driver is **NOT** compatible with CUDA 11.7 as it can be seen in table 3 in
 
 **1.6** Now you can check the correct installation of the drivers using the command:
 	
-	`nvidia-smi`	
+	nvidia-smi	
 	
 And you should see something similar:
-imagen
+![nvidia-smi](nvidia-smi.png)
 	
-Altough a CUDA version is shown next to the driver version it is not installed yet. You can check using the command:
+Altough a CUDA version is shown next to the driver version it is not installed yet. You can check this using the command:
 	
-	`nvcc --version`
+	nvcc --version
 	
-2. **CUDA**
+**2. CUDA**
 
--pues resulta que el 10.2 no esta disponible en el repo de 20.04, asi que voy a seguir las intrucciones del 18.04 -> NO FUNCIONO!!!! broken pkg warning
----lo voy a intentar con todo lo del driver 470, usando el cuda 11.4 y a ver si jala
-#https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
-#https://developer.nvidia.com/cuda-11-4-4-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local
+Intall CUDA with DEB version from official webpage. 
+https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
+https://developer.nvidia.com/cuda-11-4-4-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_local
 
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
