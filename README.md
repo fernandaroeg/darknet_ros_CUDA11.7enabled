@@ -1,3 +1,4 @@
+# MODIFIED VERSION OF DARKNET_ROS to be able to run it in Ubuntu20.40 and ROS Noetic using GPU acceleration with CUDA11.7 and cuDNN8.5.0 on a NVIDIA GeForce GTX 1650
 # YOLO ROS: Real-Time Object Detection for ROS
 
 ## Overview
@@ -66,7 +67,7 @@ This software is built on the Robotic Operating System ([ROS]), which needs to b
 In order to install darknet_ros, clone the latest version using SSH (see [how to set up an SSH key](https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html)) from this repository into your catkin workspace and compile the package using ROS.
 
     cd catkin_workspace/src
-    git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
+    git clone --recursive git@github.com:fernandaroeg/darknet_ros_CUDA11.7enabled.git
     cd ../
 
 To maximize performance, make sure to build in *Release* mode. You can specify the build type by setting
