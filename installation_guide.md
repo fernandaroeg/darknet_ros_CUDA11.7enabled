@@ -11,12 +11,12 @@ Here is a step-by-step guide on how to install and configure the required Nvidia
 ## Pre-Install Actions
 This steps were implemented in a clean install of Ubuntu with no Nvidia software previously installed. Please make sure you don't have any Nvidia drivers previously installed to avoid conflicts and if so purge them using the following commands: 
 	
-	Check which nvidia packages are installed with: 
-	`dpkg -l | grep -i nvidia`
+Check which nvidia packages are installed with: 
+	dpkg -l | grep -i nvidia
 	
 	Uninstall nvidia drivers:
-	`sudo apt-get remove --purge '^nvidia-.*'`
-	`sudo apt-get autoremove`
+	sudo apt-get remove --purge '^nvidia-.*'
+	sudo apt-get autoremove
 	
 The installation of Nvidia drivers activates the BIOS secure boot, so it is also recomended to do this installation in a BIOS with the default values. The installation instructions in this guide were done on a notebook that had the BIOS reset to its default values. 
 
@@ -27,13 +27,13 @@ The installation of Nvidia drivers activates the BIOS secure boot, so it is also
 There are several methods to install the Nvidia drivers in Ubuntu: using the Software & Updates tool in Ubuntu, install via command line using apt, or downloading the .run file of the driver. The first option is recomended as it is the easiest and will be described in this guide.
 For more information on the other installation methods can be found here [Nvidia Drivers Installation in Ubuntu](https://phoenixnap.com/kb/install-nvidia-drivers-ubuntu#ftoc-heading-11)
 
-1.1 Find the recomended driver for your GPU here: https://www.nvidia.com/download/index.aspx
+1.1 Find the recomended driver for your GPU here [Official Drivers | Nvidia](https://www.nvidia.com/download/index.aspx)
 
 1.2 Make sure the driver is compatible with CUDA 11.7
 
-	 For the GPU in this this example, GeForce GTX 1650, the recomended driver (April, 2023) in the Nvidia webpage is 525 but this is not compatible with CUDA 11.7 as it can be seen in table 3 in [CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/)
+For the GPU in this this example, GeForce GTX 1650, the recomended driver (April, 2023) in the Nvidia webpage is 525 but this is not compatible with CUDA 11.7 as it can be seen in table 3 in [CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/)
 	 
-	 So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515. 
+So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515. 
 	 
 1.3 Now that the driver version to be installed is identified, open the **Software & Updates** tool in Ubuntu and go to the **Additional Drivers** section. Select the desired driver and click on **Apply Changes**
 ![Software&Updates](Software&Updates_AdditionalDrivers.png)
@@ -74,7 +74,7 @@ reboot
 nvcc --version
 --despues del reboot aqui le daba nvcc --version y no me aparecia nada, faltaba 
 sudo nano ~/.profile
- # add at the end of file
+ add at the end of file
  if [ -d "/usr/local/cuda/bin/" ]; then
      export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
      export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
