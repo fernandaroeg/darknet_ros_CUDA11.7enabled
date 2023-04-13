@@ -9,7 +9,8 @@ Here is a step-by-step guide on how to install and configure the required Nvidia
 - cuDNN: 8.5.0
 
 ## Pre-Install Actions
-This steps were implemented in a clean install of Ubuntu with no Nvidia software previously installed. Please make sure you don't have any Nvidia drivers previously installed to avoid conflicts and if so purge them using the following commands: 
+
+1. This steps were implemented in a clean install of Ubuntu with no Nvidia software previously installed. Please make sure you don't have any Nvidia drivers previously installed to avoid conflicts and if so purge them using the following commands: 
 	
 Check which nvidia packages are installed with: 
 
@@ -20,38 +21,38 @@ Uninstall nvidia drivers:
 	sudo apt-get remove --purge '^nvidia-.*'
 	sudo apt-get autoremove
 	
-The installation of Nvidia drivers activates the BIOS secure boot, so it is also recomended to do this installation in a BIOS with the default values. The installation instructions in this guide were done on a notebook that had the BIOS reset to its default values. 
+2. The installation of Nvidia drivers activates the BIOS secure boot, so it is also recomended to do this installation in a BIOS with the default values. The installation instructions in this guide were done on a notebook that had the BIOS reset to its default values. 
 
 ## Installation Steps
 
-1. **NVIDIA DRIVER**
+**1. NVIDIA DRIVER**
 
 There are several methods to install the Nvidia drivers in Ubuntu: using the Software & Updates tool in Ubuntu, install via command line using apt, or downloading the .run file of the driver. The first option is recomended as it is the easiest and will be described in this guide.
 More information on the other installation methods can be found here [Nvidia Drivers Installation in Ubuntu](https://phoenixnap.com/kb/install-nvidia-drivers-ubuntu#ftoc-heading-11)
 
-1.1 Find the recomended driver for your GPU here [Official Drivers | Nvidia](https://www.nvidia.com/download/index.aspx)
+**1.1** Find the recomended driver for your GPU here [Official Drivers | Nvidia](https://www.nvidia.com/download/index.aspx)
 ![Recommended_Driver](Recommended_Driver.png)
 
-1.2 Make sure the driver is compatible with CUDA 11.7
+**1.2** Make sure the driver is compatible with CUDA 11.7
 
 For the GPU in this this example, GeForce GTX 1650, the recomended driver (April, 2023) in the Nvidia webpage is 525 as it can be seen in the image in step 1.1 
 This driver is **NOT** compatible with CUDA 11.7 as it can be seen in table 3 in [CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/)
+
 ![CUDA_compatibility](CUDA_compatibility.png)
-	 
 **So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515.**
 	 
-1.3 Now that the driver version to be installed is identified, open the **Software & Updates** tool in Ubuntu and go to the **Additional Drivers** section. Select the desired driver and click on **Apply Changes**
+**1.3** Now that the driver version to be installed is identified, open the **Software & Updates** tool in Ubuntu and go to the **Additional Drivers** section. Select the desired driver and click on **Apply Changes**
 ![Software&Updates](Software&Updates_AdditionalDrivers.png)
 
-1.4 The system is going to give you a warning about the secure boot being enabled and ask you to set a password. Once this is done you need to reboot. 
+**1.4** The system is going to give you a warning about the secure boot being enabled and ask you to set a password. Once this is done you need to reboot. 
 	
 	`sudo reboot`
 	
-1.5 During reboot you will be asked to enroll the Mok key. Click on yes.
+**1.5** During reboot you will be asked to enroll the Mok key. Click on yes.
 
 	imagen 
 
-1.6 Now you can check the correct installation of the drivers using the command:
+**1.6** Now you can check the correct installation of the drivers using the command:
 	
 	`nvidia-smi`	
 	
