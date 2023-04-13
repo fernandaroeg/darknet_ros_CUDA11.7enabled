@@ -39,18 +39,20 @@ For the GPU in this this example, GeForce GTX 1650, the recomended driver (April
 This driver is **NOT** compatible with CUDA 11.7 as it can be seen in table 3 in [CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/)
 
 ![CUDA_compatibility](CUDA_compatibility.png)
+
 **So the previous driver release compatible with this GPU is going to be installed, the Nvidia driver 515.**
+	 
 	 
 **1.3** Now that the driver version to be installed is identified, open the **Software & Updates** tool in Ubuntu and go to the **Additional Drivers** section. Select the desired driver and click on **Apply Changes**
 ![Software&Updates](Software&Updates_AdditionalDrivers.png)
 
 **1.4** The system is going to give you a warning about the secure boot being enabled and ask you to set a password. Once this is done you need to reboot. 
 	
-	`sudo reboot`
+	sudo reboot
 	
 **1.5** During reboot you will be asked to enroll the Mok key. Click on yes.
 
-	imagen 
+![Mok_key](Mok_key.png)
 
 **1.6** Now you can check the correct installation of the drivers using the command:
 	
