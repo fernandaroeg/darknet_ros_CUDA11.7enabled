@@ -171,6 +171,7 @@ In order to be able to download the files a developer account must be created. Y
 3.1 Make nvidia developer account
 
 3.2 Download 3 files
+
 	- Local Installer for Ubuntu20.04 x86_64 (Deb)
 	- Local Installer for Ubuntu20.04 aarch64sbsa (Deb)
 	- Local Installer for Ubuntu20.04 cross-sbsa (Deb)
