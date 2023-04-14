@@ -1,4 +1,4 @@
-# Installation Guide
+# Installation Guide 
 Here is a step-by-step guide on how to install and configure the required Nvidia drivers to be able to run darknet_ros on Ubuntu20.04 with a Nvidia GPU to get real-time performance of the YOLO network.
 It consists the following main steps: 
 
