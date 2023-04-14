@@ -172,9 +172,9 @@ In order to be able to download the files a developer account must be created. Y
 
 3.2 Download 3 files
 
-	- Local Installer for Ubuntu20.04 x86_64 (Deb)
-	- Local Installer for Ubuntu20.04 aarch64sbsa (Deb)
-	- Local Installer for Ubuntu20.04 cross-sbsa (Deb)
+- Local Installer for Ubuntu20.04 x86_64 (Deb)
+- Local Installer for Ubuntu20.04 aarch64sbsa (Deb)
+- Local Installer for Ubuntu20.04 cross-sbsa (Deb)
 	
 	
 3.3 In terminal go to the package location and install the 3 deb files (runtime library, developer library, and code samples)
