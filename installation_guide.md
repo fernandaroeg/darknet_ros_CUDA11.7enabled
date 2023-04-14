@@ -207,9 +207,12 @@ Copy libcudnn* (in /usr/lib/x86_64-linux-gnu) to (/usr/local/cuda/lib64):
  ### **4. ROS Configuration**
 
 4.1 Install ROS [noetic](http://wiki.ros.org/noetic/Installation)
+
 4.2 Set up [catkin_ws](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+
 4.3 Set SSH key for git if needed 
-4.4 Clone this version of the repo with the recursive flag --recursive (bc there is a submodule)
+
+4.4 Clone this version of the repo with the recursive flag --recursive. This is needed to clone also the contents in the darkent folder which contains the darknet library as a submodule pointing to another repository.
 
 	cd catkin_workspace/src
 	
