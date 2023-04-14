@@ -177,7 +177,7 @@ In order to be able to download the files a developer account must be created. Y
 - Local Installer for Ubuntu20.04 cross-sbsa (Deb)
 	
 	
-3.3 In terminal go to the package location and install the 3 deb files (runtime library, developer library, and code samples)
+3.3 In terminal go to the package location and install the 3 deb files using dpkg command
 	
 	sudo dpkg -i cudnn-local-repo-ubuntu2004-8.5.0.96_1.0-1_arm64.deb
 
