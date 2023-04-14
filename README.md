@@ -1,6 +1,6 @@
 # MODIFIED VERSION OF DARKNET_ROS to be able to run it in Ubuntu20.40 and ROS Noetic using GPU acceleration with CUDA11.7 and cuDNN8.5.0 on a NVIDIA GeForce GTX 1650 to get real-time performance.
 
-Please see [installation_guide](https://github.com/fernandaroeg/darknet_ros_CUDA11.7enabled/blob/master/installation_guide.md) for installation and configuration instructions. 
+Please see [installation_guide](https://github.com/fernandaroeg/darknet_ros_CUDA11.7enabled/blob/master/installation_guide/installation_guide.md) for installation and configuration instructions. 
 
 # YOLO ROS: Real-Time Object Detection for ROS
 
