@@ -112,9 +112,10 @@ a. install local repository in file system
 	sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.0-515.43.04-1_amd64.deb
 				
 b. enroll ephemeral public GPG key
+
 	sudo cp /var/cuda-repo-<distro>-X-Y-local/cuda-*-keyring.gpg /usr/share/keyrings/
 	
-sudo cp /var/cuda-repo-ubuntu2004-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+	sudo cp /var/cuda-repo-ubuntu2004-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
 	
 3. common installation instructions for ubuntu 
 
@@ -131,7 +132,9 @@ c. Reboot system
 	sudo reboot
 
 4. post-installation actions
+
 4.1 environment set up
+
 a. add path to PATH variable 
 
 	export PATH=/usr/local/cuda-12.0/bin${PATH:+:${PATH}}
