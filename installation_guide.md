@@ -168,16 +168,16 @@ You must see something like:
 The recomended method to install cuDNN is using  deb(local) install files. These files can be found in the [cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive) page. 
 In order to be able to download the files a developer account must be created. You will be asked to fill a survey and then you can download  the files. 
 
-3.1 Make nvidia developer account
+**3.1** Make nvidia developer account
 
-3.2 Download 3 files
+**3.2** Download 3 files
 
 - Local Installer for Ubuntu20.04 x86_64 (Deb)
 - Local Installer for Ubuntu20.04 aarch64sbsa (Deb)
 - Local Installer for Ubuntu20.04 cross-sbsa (Deb)
 	
 	
-3.3 In terminal go to the package location and install the 3 deb files using dpkg command
+**3.3** In terminal go to the package location and install the 3 deb files using dpkg command
 	
 	sudo dpkg -i cudnn-local-repo-ubuntu2004-8.5.0.96_1.0-1_arm64.deb
 
@@ -185,13 +185,13 @@ In order to be able to download the files a developer account must be created. Y
 	
 	sudo dpkg -i cudnn-local-repo-cross-sbsa-ubuntu2004-8.5.0.96_1.0-1_all.deb
 	
-3.4 check cudnn version
+**3.4** check cudnn version
 
 	/sbin/ldconfig -N -v $(sed 's/:/ /' <<< $LD_LIBRARY_PATH) 2>/dev/null | grep libcudnn
 
 ![cuDNN_version](cuDNN_version.png)
 
-3.5 Optional
+**3.5** Optional
 
 If you cannot locate cudnn.h, or the later compilation fails with not found cudnn.h message:
 
@@ -206,13 +206,13 @@ Copy libcudnn* (in /usr/lib/x86_64-linux-gnu) to (/usr/local/cuda/lib64):
  
  ### **4. ROS Configuration**
 
-4.1 Install ROS [noetic](http://wiki.ros.org/noetic/Installation)
+**4.1** Install ROS [noetic](http://wiki.ros.org/noetic/Installation)
 
-4.2 Set up [catkin_ws](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
+**4.2** Set up [catkin_ws](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
-4.3 Set SSH key for git if needed 
+**4.3** Set SSH key for git if needed 
 
-4.4 Clone this version of the repo with the recursive flag --recursive. This is needed to clone also the contents in the darkent folder which contains the darknet library as a submodule pointing to another repository.
+**4.4** Clone the repository darknet_ros_CUDA11.7enabled using the recursive flag . This flag is needed to also clone the contents in the folder /darknet which contains the darknet library as a submodule pointing to another repository.
 
 	cd catkin_workspace/src
 	
@@ -220,21 +220,38 @@ Copy libcudnn* (in /usr/lib/x86_64-linux-gnu) to (/usr/local/cuda/lib64):
 	
 	cd ../
 	
-4.5 Build in release mode 
+**4.5** Build in release mode 
 
 	catkin_make -DCMAKE_BUILD_TYPE=Release
 
 
 ### **5. configure darknet repo**
 
- 5.1 enable flags, 
+ **5.1** Modify /darnet_ros/darknet/Makefile
+	
+	GPU = 1
+	CUDNN = 1
+	OPENCV = 1
  
- 5.2 set GPU architecture
- 
- 5.3 make, compile darknet library
- 
- 5.4 catkin_make, compile darknet_ros pkg
+**5.2** Add GPU architecture (ARCH) value. You can find it here [CUDA arch](https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
 
-### **6. Test it **
+The arch value for the GeForce GTX 1650 is:
+	
+	ARCH= -gencode arch=compute_75,code=sm_75 \
+      -gencode arch=compute_75,code=[sm_75,compute_75]
+ 
+**5.3** Run make in /darknet_ros/darknet, to compile darknet library
+ 
+**5.4** Modify /darknet_ros/darknet_ros/CmakeList.txt to include arch values
+ 
+ 	ARCH= -gencode arch=compute_75,code=sm_75 \
+      -gencode arch=compute_75,code=[sm_75,compute_75]
+ 
+**5.5** Run catkin_make in the /catkin_ws containing the darknet_ros package to compile the pkg
 
-imagen
+### **6. Test it!**
+
+**ENJOY REAL TIME YOLO PERFORMANCE!**
+
+![Real time](enjoy_real_time.png)
+
