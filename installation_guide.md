@@ -79,6 +79,7 @@ For instance, the instructions to install CUDA11.7 in Ubuntu20.04 using the deb(
 In summary the steps to follow are: 
 
 1.  pre-installation actions
+
 1.1 download the Nvidia CUDA toolkit
 	
 	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
