@@ -1,5 +1,13 @@
 # Installation Guide
-Here is a step-by-step guide on how to install and configure the required Nvidia drivers to be able to run Darknet-ROS on a Nvidia GPU to get real-time performance of the YOLO network
+Here is a step-by-step guide on how to install and configure the required Nvidia drivers to be able to run darknet_ros on Ubuntu20.04 with a Nvidia GPU to get real-time performance of the YOLO network.
+It consists the following main steps: 
+
+0. Pre-Installation Actions. To avoid having conflicts it is important to check you have the correct environment set-up before installation begins. 
+1. Install the NVID drivers specific for the GPU card. This will allow CUDA and cuDNN to communicate between your ros pkg and GPU. 
+2. Install CUDA. This is the nvida toolkit that allows access to the GPU's virtual instruction set and parallel computational elements
+3. Install cuDNN.  This is the nvidia GPU-accelerated library for deep neural networks. 
+4. ROS setup and darknet_ros_CUDA11.7enabled repo cloning 
+5. Configure and compile the repo
 
 ## Requirements
 - Ubuntu 20.04.6 LTS
